@@ -25,5 +25,7 @@ app.use('/api',apiRouter);
 // This conditional is here for testing purposes:
 if (!module.parent) { 
   // Add your code to start the server listening at PORT below:
-  app.listen(PORT)
+  app.listen(PORT,()=>{
+    console.log(`Listening on PORT: ${PORT}`);
+  });
 }
