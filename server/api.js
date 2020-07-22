@@ -95,9 +95,8 @@ ideasRouter.delete('/:ideaId',deleteItem);
 // Meetings Router
 const meetingsRouter = express.Router({mergeParams: true});
 
-ideasRouter.get('/', setName('meetings'));
+ideasRouter.use(setName('meetings'));
 ideasRouter.get('/', getAllItem);
-
 ideasRouter.post('/',(req,res)=>{
 
     db.createMeeting();
@@ -111,5 +110,6 @@ ideasRouter.delete('/',(req,res)=>{
 
 apiRouter.use('/minions', minionsRouter);
 apiRouter.use('/ideas', ideasRouter);
+apiRouter.use('/meetings', ideasRouter);
 
 module.exports = apiRouter;
