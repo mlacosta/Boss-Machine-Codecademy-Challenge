@@ -1,9 +1,11 @@
-const checkMillionDollarIdea = (idea) => {
+const checkMillionDollarIdea = (req,res,next) => {
 
-    const value = idea.numWeeks + idea.weeklyRevenue;
-    
-    if (value > 1e6){
-        return value;
+    const { numWeeks, weeklyRevenue } = req.body;
+    const totalMoney = Number(numWeeks) * Number(weeklyRevenue);
+    if (!numWeeks || !weeklyRevenue || isNaN(totalMoney) || totalMoney < 1000000) {
+      res.status(400).send();
+    } else {
+      next();
     }
 
 };

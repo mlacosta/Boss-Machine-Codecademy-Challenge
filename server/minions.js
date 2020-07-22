@@ -41,3 +41,6 @@ minionsRouter.delete('/:minionId', (req, res, next) => {
   }
   res.send();
 });
+
+
+//Bonus
